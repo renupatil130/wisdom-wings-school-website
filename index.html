@@ -1,0 +1,868 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Wisdom Wings School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: cream top strip → white header with nav → cream/gold banner → lettered disclosure sections (A–E) with maroon-brown table heads → terracotta CTA → maroon footer
+   Colours taken from balabharathicbse.in (Elementor global colours). Single light theme, matching the original site. */
+:root{
+  --maroon:#701F25; --maroon-dk:#54161B; --terra:#B75234; --brown:#8C3B1A;
+  --gold:#C89A55; --gold-lt:#EAB553; --orange:#E8890C;
+  --cream:#F6F0E5; --cream-2:#F4ECDD; --sand:#E0D8C8; --stripe:#FDFAF2; --hover:#FFF6EB; --line:#FCECD7; --grid:#D1D5DB;
+  --text:#6F6058; --navtext:#1E293B; --white:#FFFFFF;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--white);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
+:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+
+/* top strip */
+.strip{background:var(--sand);color:var(--text);font-size:.86rem}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;justify-content:space-between;padding-block:8px}
+.strip .grp{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+.strip a{text-decoration:none}
+.strip .motto{font-weight:600;color:var(--terra)}
+.strip .pill{background:var(--terra);color:var(--white);padding:3px 14px;border-radius:999px;font-weight:600;text-decoration:none}
+
+/* header */
+header.site{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;box-shadow:0 2px 10px rgba(112,31,37,.06)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.crest img{width:100%;height:100%;object-fit:contain;display:block}
+.crest:has(img){background:none;border:0}
+.crest{width:60px;height:60px;border-radius:50%;background:var(--maroon);color:var(--gold-lt);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.25rem;flex:none;border:2px solid var(--gold)}
+.brand b{font-family:var(--display);font-size:1.4rem;line-height:1.1;display:block;color:var(--maroon);font-weight:700}
+.brand small{color:var(--terra);font-size:.85rem;font-weight:500}
+nav.main ul{list-style:none;margin:0;padding:0}
+nav.main>ul{display:flex;gap:2px;align-items:center}
+nav.main li{position:relative}
+nav.main a,nav.main button{display:block;padding:8px 12px;border-radius:6px;text-decoration:none;font:inherit;font-weight:500;font-size:.95rem;background:none;border:0;color:var(--navtext);cursor:pointer}
+nav.main a:hover,nav.main button:hover{color:var(--terra);background:var(--cream)}
+nav.main a[aria-current="page"]{color:var(--terra);font-weight:600}
+nav.main .sub{position:absolute;top:100%;left:0;min-width:250px;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--terra);border-radius:0 0 8px 8px;padding:6px;box-shadow:0 12px 28px rgba(84,22,27,.14);display:none}
+nav.main li:hover>.sub,nav.main li:focus-within>.sub,nav.main li.open>.sub{display:block}
+nav.main .sub .sub{top:0;left:100%}
+.enq{background:var(--terra) !important;color:var(--white) !important;font-weight:600 !important;padding-inline:18px !important}
+.enq:hover{background:var(--maroon) !important}
+.burger{display:none;background:none;border:1px solid var(--sand);border-radius:6px;padding:6px 12px;font:inherit;color:var(--maroon);cursor:pointer}
+@media (max-width:920px){
+  .burger{display:block}
+  nav.main{position:absolute;left:0;right:0;top:100%;background:var(--white);border-bottom:1px solid var(--line);padding:8px 16px 16px}
+  nav.main:not(.show){display:none}
+  nav.main>ul{flex-direction:column;align-items:stretch}
+  nav.main .sub,nav.main .sub .sub{position:static;box-shadow:none;border:0;border-left:2px solid var(--line);border-radius:0;margin-left:12px;min-width:0}
+}
+
+/* banner */
+.banner{background:linear-gradient(90deg,rgba(245,237,223,.95) 30%,rgba(184,154,97,.75) 98%),var(--cream-2);border-bottom:1px solid var(--line)}
+.banner .wrap{padding-block:56px 48px}
+.eyebrow{font-size:.95rem;color:var(--terra);font-weight:500}
+.banner h1{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.6rem);margin:.15em 0 .1em;text-wrap:balance;line-height:1.05;color:var(--maroon-dk);font-weight:700}
+.crumbs{font-size:.9rem;color:var(--text)}
+.crumbs a{color:var(--terra)}
+
+/* jump index */
+.index{display:flex;flex-wrap:wrap;gap:8px;padding-block:24px 4px}
+.index a{border:1px solid var(--line);background:var(--stripe);border-radius:999px;padding:5px 14px;text-decoration:none;font-size:.9rem;font-weight:500;color:var(--maroon)}
+.index a b{color:var(--terra);margin-right:6px;font-family:var(--display);font-size:1.05rem}
+.index a:hover{border-color:var(--terra);background:var(--hover)}
+
+/* sections */
+main{padding-block:12px 56px}
+.sec{margin-top:34px;scroll-margin-top:96px}
+.sec-h{display:flex;align-items:baseline;gap:12px;background:var(--cream);padding:12px 18px;border-radius:8px 8px 0 0;border-left:4px solid var(--terra)}
+.sec-h .ltr{font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--terra);line-height:1}
+.sec-h h2{font-family:var(--display);font-size:1.5rem;font-weight:700;margin:0;text-transform:uppercase;color:var(--maroon);letter-spacing:.02em}
+.sec h3{font-family:var(--display);font-size:1.3rem;font-weight:700;margin:28px 0 0;text-transform:uppercase;color:var(--maroon)}
+.tbl{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-top:0;border-radius:0 0 8px 8px;box-shadow:0 4px 14px rgba(112,31,37,.05)}
+h3+.tbl{border-top:1px solid var(--line);border-radius:8px;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px}
+th,td{padding:14px 20px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead tr{background:var(--brown)}
+thead th{color:var(--white);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+tbody tr:nth-of-type(2n){background:var(--stripe)}
+tbody tr:hover{background:var(--hover)}
+td{color:var(--brown)}
+td.no{width:70px;font-weight:600;color:var(--brown);font-variant-numeric:tabular-nums}
+td.lbl{font-weight:500;text-transform:uppercase;font-size:.86rem;letter-spacing:.02em;color:var(--text)}
+tr.child td.lbl{padding-left:40px}
+.num{font-variant-numeric:tabular-nums}
+.ph{background:#FFF3DC;color:#8A5300;border:1px dashed var(--orange);border-radius:4px;padding:0 6px;font-size:.9em}
+.btn-view{display:inline-flex;align-items:center;gap:6px;background:var(--terra);color:var(--white);text-decoration:none;padding:6px 16px;border-radius:6px;font-weight:600;font-size:.85rem}
+.btn-view:hover{background:var(--maroon)}
+.btn-view svg{width:14px;height:14px}
+.pend{display:inline-block;background:var(--cream-2);color:var(--text);border:1px solid var(--sand);padding:3px 10px;border-radius:999px;font-size:.8rem;font-weight:600}
+.pct{font-weight:600}
+.pct.full{color:#2E7D4F}
+.labs{margin:4px 0 0;padding:0;list-style:none}
+.labs li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--sand);padding:2px 0}
+.labs li:last-child{border:0}
+.updated{color:var(--text);font-size:.88rem;margin-top:28px}
+
+/* CTA */
+.cta{background:linear-gradient(120deg,var(--terra) 0%,var(--maroon) 100%);color:var(--white)}
+.cta .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding-block:44px}
+.cta h2{font-family:var(--display);margin:0 0 4px;font-size:2rem;font-weight:700;text-wrap:balance;color:var(--white)}
+.cta p{margin:0;max-width:62ch;color:var(--cream-2)}
+.cta .btns{display:flex;flex-wrap:wrap;gap:10px}
+.cta a{padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:600}
+.cta a.p{background:var(--white);color:var(--terra)}
+.cta a.p:hover{background:var(--cream)}
+.cta a.s{border:1.5px solid var(--white);color:var(--white)}
+.cta a.s:hover{background:rgba(255,255,255,.12)}
+
+/* footer */
+footer{background:var(--maroon);color:var(--cream-2);font-size:.93rem}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;padding-block:48px 30px}
+footer h4{font-family:var(--display);color:var(--gold-lt);margin:0 0 12px;font-size:1.45rem;font-weight:700}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--gold-lt)}
+footer b{color:var(--white)}
+.aff{display:flex;gap:10px;align-items:center}
+.aff .seal{width:40px;height:40px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:.68rem;font-weight:700;color:var(--maroon);flex:none}
+.legal-bar{background:var(--cream-2);color:var(--text)}
+.legal{padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:.85rem}
+.legal a:hover{color:var(--terra)}
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:0;background:var(--terra);color:var(--white);font-size:1.2rem;cursor:pointer;box-shadow:0 6px 16px rgba(84,22,27,.3)}
+.totop:hover{background:var(--maroon)}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---- multi-page additions ---- */
+.page[hidden]{display:none!important}
+.prose{max-width:72ch}
+.prose p{margin:0 0 1em}
+.prose h2,.pg-h2{font-family:var(--display);font-weight:700;color:var(--maroon);font-size:1.9rem;line-height:1.15;margin:0 0 .4em;text-wrap:balance}
+.pg-h3{font-family:var(--display);font-weight:700;color:var(--maroon);font-size:1.4rem;margin:0 0 .3em}
+.kicker{color:var(--terra);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.block{padding-block:44px}
+.block+.block{border-top:1px solid var(--line)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid>*{min-width:0}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:22px;box-shadow:0 4px 14px rgba(112,31,37,.05)}
+.card h3{font-family:var(--display);font-weight:700;color:var(--maroon);font-size:1.35rem;margin:0 0 6px}
+.card p{margin:0}
+.card .go{display:inline-block;margin-top:12px;color:var(--terra);font-weight:600;text-decoration:none}
+.card .go:hover{color:var(--maroon)}
+.card.cream{background:var(--stripe)}
+.two{display:grid;gap:32px;grid-template-columns:1.3fr 1fr;align-items:start}
+.two>*{min-width:0}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+ul.tick{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.tick li{padding-left:24px;position:relative}
+ul.tick li::before{content:"";position:absolute;left:4px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--terra)}
+ol.steps{list-style:none;counter-reset:st;padding:0;margin:0;display:grid;gap:14px}
+ol.steps li{counter-increment:st;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+ol.steps li::before{content:counter(st);width:44px;height:44px;border-radius:50%;background:var(--maroon);color:var(--gold-lt);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.3rem}
+ol.steps b{color:var(--maroon);display:block}
+
+/* home hero */
+.hero{background:linear-gradient(90deg,rgba(245,237,223,.97) 35%,rgba(184,154,97,.8) 100%),var(--cream-2);border-bottom:1px solid var(--line)}
+.hero .wrap{padding-block:84px 56px;display:grid;gap:28px;grid-template-columns:1.4fr 1fr;align-items:center}
+.hero .wrap>*{min-width:0}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-family:var(--display);font-weight:700;color:var(--maroon-dk);font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.02;margin:.15em 0 .3em;text-wrap:balance}
+.hero p.lead{font-size:1.1rem;max-width:52ch;margin:0 0 22px}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:600;border:1.5px solid var(--terra);cursor:pointer;font:inherit;font-weight:600}
+.btn.p{background:var(--terra);color:var(--white)}
+.btn.p:hover{background:var(--maroon);border-color:var(--maroon)}
+.btn.s{background:transparent;color:var(--terra)}
+.btn.s:hover{background:var(--white)}
+.factcard{background:var(--white);border-radius:12px;border:1px solid var(--line);padding:22px;box-shadow:0 10px 30px rgba(84,22,27,.1)}
+.factcard dl{margin:0;display:grid;gap:10px}
+.factcard div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--sand);padding-bottom:8px}
+.factcard div:last-child{border:0;padding:0}
+.factcard dt{color:var(--text)}
+.factcard dd{margin:0;color:var(--maroon);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.stats{background:var(--maroon);color:var(--cream-2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;padding-block:28px}
+.stats b{display:block;font-family:var(--display);font-size:2.3rem;color:var(--gold-lt);line-height:1}
+.stats span{font-size:.9rem}
+.quote{border-left:4px solid var(--terra);background:var(--stripe);padding:20px 24px;border-radius:0 10px 10px 0;font-family:var(--display);font-size:1.3rem;color:var(--maroon-dk);line-height:1.4}
+.sign{margin-top:14px;font-family:var(--body);font-size:.95rem;color:var(--text)}
+.sign b{color:var(--maroon)}
+.house{border-top:6px solid var(--hc,var(--terra))}
+.house .sw{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--hc);margin-right:8px;vertical-align:middle}
+.empty{text-align:center;padding:48px 20px;border:1.5px dashed var(--sand);border-radius:12px;background:var(--stripe)}
+.empty h3{font-family:var(--display);color:var(--maroon);font-size:1.5rem;margin:0 0 6px}
+.event{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
+.event .date{background:var(--maroon);color:var(--white);border-radius:8px;text-align:center;padding:8px 4px;line-height:1.1}
+.event .date b{display:block;font-family:var(--display);font-size:1.7rem;color:var(--gold-lt)}
+
+/* forms */
+form.enq-form{display:grid;gap:14px}
+.f-row{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.f-row{grid-template-columns:1fr}}
+label.f{display:grid;gap:5px;font-weight:500;font-size:.92rem;color:var(--maroon)}
+.f input,.f select,.f textarea{font:inherit;padding:10px 12px;border:1px solid var(--sand);border-radius:6px;background:var(--white);color:var(--navtext);width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--terra);border-color:var(--terra)}
+.f-note{font-size:.85rem;color:var(--text);margin:0}
+.f-err{color:#B3261E;font-size:.88rem;margin:0}
+.f-ok{background:#EAF5EE;border:1px solid #9CCFB0;color:#1F5E3A;border-radius:8px;padding:12px 14px}
+.copyline{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 0;border-bottom:1px dotted var(--sand)}
+.copyline:last-child{border:0}
+.copyline .k{width:90px;color:var(--text);font-size:.88rem}
+.copyline .v{flex:1;min-width:0;color:var(--maroon);font-weight:600;user-select:all;overflow-wrap:anywhere}
+.mini{font:inherit;font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:5px;border:1px solid var(--sand);background:var(--stripe);color:var(--maroon);cursor:pointer;text-decoration:none}
+.mini:hover{border-color:var(--terra);color:var(--terra)}
+.index button{border:1px solid var(--line);background:var(--stripe);border-radius:999px;padding:5px 14px;font:inherit;font-size:.9rem;font-weight:500;color:var(--maroon);cursor:pointer}
+.index button b{color:var(--terra);margin-right:6px;font-family:var(--display);font-size:1.05rem}
+.index button:hover{border-color:var(--terra);background:var(--hover)}
+nav.main a.on, nav.main button.on{color:var(--terra)}
+.footer-links a{cursor:pointer}
+</style>
+
+<script>
+/* =====================================================================
+   EDIT YOUR SCHOOL DATA HERE — everything on the page is built from this.
+   Any value written in [square brackets] shows as a yellow "to fill" tag.
+   For documents: put the PDF link in "url". Leave url "" to show "Pending".
+   ===================================================================== */
+const SCHOOL = {
+  name: "Wisdom Wings English Medium School",
+  city: "Kotturu",
+  initials: "WW",
+  motto: "Building the Future",
+  logo: "img/logo.png",
+  affiliationNo: "831768",
+  phones: ["+91 81057 43360", "+91 63836 25227"],
+  email: "wisdomwingssch@gmail.com",
+  address: "Siddaganga Nagara, 19th Ward, Itagi Road, Kotturu – 583134, Vijayanagara Dist., Karnataka",
+  hours: "Mon – Sat: 9:00 AM – 5:00 PM",
+  admissionsText: "Admissions Open for 2027-28",
+  enquiryUrl: "#",
+  tagline: "A CBSE affiliated English medium school in Kotturu, run by Taata Education Trust (R), Bannigola.",
+  parentBody: "Taata Education Trust (R)",
+  parentBodySub: "Bannigola, Hagaribommanahalli Tq.",
+  social: { Facebook: "#", Instagram: "#", YouTube: "#" },
+  lastUpdated: "10-10-2026"
+};
+
+const GENERAL = [
+  ["Name of the School", "WISDOM WINGS ENGLISH MEDIUM SCHOOL"],
+  ["Affiliation No. (if applicable)", "831768"],
+  ["School Code (if applicable)", "47452"],
+  ["Complete Address with Pin Code", "SIDDAGANGA NAGARA, 19TH WARD, ITAGI ROAD, KOTTURU – 583134"],
+  ["Principal Name & Qualification", "EKANTA NAIK N Y — M.A., B.Ed. (English)"],
+  ["School Email ID", "wisdomwingssch@gmail.com"],
+  ["Contact Details (Landline/Mobile)", "+91 81057 43360 / +91 63836 25227"]
+];
+
+const DOCUMENTS = [
+  { t: "Copies of Affiliation/Upgradation Letter and Recent Extension of Affiliation, if any", url: [["CBSE Approval Letter", "docs/cbse-approval-letter.pdf"], ["State Recognition Order", "docs/state-recognition-order.pdf"]] },
+  { t: "Copies of Societies/Trust/Company Registration/Renewal Certificate, as applicable", url: [["Trust Rectification Deed", "docs/trust-rectification-deed.pdf"], ["Non-Proprietary Affidavit & Trustees", "docs/non-proprietary-affidavit.pdf"]] },
+  { t: "Copy of valid Building Safety Certificate as per the National Building Code", url: "docs/building-safety-certificate.pdf" },
+  { t: "Copy of valid Fire Safety Certificate issued by the competent authority", url: "docs/fire-safety-certificate.pdf" },
+  { t: "Copy of the DEO Certificate submitted by the school for affiliation/upgradation/extension of affiliation or self certification by school", url: "docs/self-certification.pdf" },
+  { t: "Copies of valid Water, Health and Sanitation Certificates", url: [["Health & Sanitary", "docs/health-sanitary-certificate.pdf"], ["Water Test Report", "docs/water-test-report.pdf"]] }
+];
+
+const ACADEMIC = [
+  { t: "Fee Structure of the School", url: "docs/fee-structure.pdf" },
+  { t: "Annual Academic Calendar", url: "" },
+  { t: "List of School Management Committee (SMC)", url: "" },
+  { t: "List of Parents Teachers Association (PTA) Members", url: "" },
+  { t: "Last three-years result of the Board Examination as per applicability", url: "" }
+];
+
+/* [year, registered, passed, remarks] — pass % is calculated automatically */
+const RESULTS = {
+  "Class X":   [["[YYYY]", "", "", ""], ["[YYYY]", "", "", ""], ["[YYYY]", "", "", ""]]
+};
+
+/* child:true rows are indented sub-items without a serial number */
+const STAFF = [
+  { t: "Principal", v: "1 — Ekanta Naik N Y, M.A., B.Ed. (English)" },
+  { t: "Vice Principal", v: "1 — Lalitha P, M.A., B.Ed." },
+  { t: "Total No. of Teachers", v: "23" },
+  { t: "PGT", v: "12", child: true },
+  { t: "TGT", v: "4", child: true },
+  { t: "Number of NTTs", v: "5", child: true },
+  { t: "Physical Education Teachers", v: "2", child: true },
+  { t: "Teachers Section Ratio", v: "1.5" },
+  { t: "Details of Special Educator", v: "1 — Basavaraj Marabada" },
+  { t: "Details of Counsellor and Wellness Teacher", v: "1 — Lalitha P, M.A., B.Ed." }
+];
+
+/* Teacher list: [name, qualification] — shown under Section D */
+const TEACHERS = {
+  "PGT": [["Gopal Krishna S","M.Sc., B.Ed."],["Mohammed Faiyaz","M.A., B.Ed."],["Lalitha P","M.A., B.Ed."],["Ekanta Naik N Y","M.A., B.Ed."],["Kotresh B","M.A., B.Ed."],["Veena","M.A., B.Ed."],["Virupakshaiah","M.A., B.Ed."],["Nazeera Begum","B.A."],["Umesh U","M.A."],["Sartaj","M.Com."],["Lavanya","M.Com."],["Prema B","B.Ed."]],
+  "TGT": [["Shantaveerappa K","M.A., B.Ed."],["Mohammed Hassain","B.Sc., B.Ed."],["Nagaveni N","B.Ed."],["Tejashwini","B.Ed."]],
+  "NTT": [["Devika B I M","B.A., D.Ed."],["Ankitha G M","B.A., M.A."],["K Sindhu","B.Sc."],["Kavya","B.Com., M.Com."],["Manasa","M.Com."]]
+};
+
+const INFRA = [
+  { t: "Total Campus Area of the School (in Sq Mtr)", v: "4653.885 Sq.mts" },
+  { t: "No. and Size of the Class Rooms (in Sq Mtr)", v: "55.18 Sq.mts each" },
+  { t: "No. and Size of Laboratories including Computer Labs (in Sq Mtr)",
+    labs: [["Computer Lab", "92 Sq.mts"], ["Maths Lab", "78 Sq.mts"], ["Composite Lab", "78 Sq.mts"], ["Library", "85 Sq.mts"]] },
+  { t: "Internet Facility", v: "YES" },
+  { t: "No. of Girls Toilets", v: "15" },
+  { t: "No. of Boys Toilets", v: "15" },
+  { t: "Link of YouTube video of the inspection of school covering the infrastructure", video: "https://youtu.be/1glI1nUjMiU" }
+];
+
+const NAV = [
+  { t: "Home", url: "#home" },
+  { t: "About Us", sub: [
+    { t: "About the School", url: "#about" }, { t: "Principal's Message", url: "#principal" },
+    { t: "Capacity Building Programs (CBP)", url: "#cbp" }, { t: "Mandatory Disclosure", url: "#mandatory-disclosure" } ] },
+  { t: "Academics", sub: [
+    { t: "Academic Calendar", url: "#calendar" }, { t: "Assessment Framework", url: "#assessment" },
+    { t: "School Houses", url: "#houses" }, { t: "Saturday Activities", url: "#saturday" } ] },
+  { t: "Admissions", url: "#admissions" }, { t: "Facilities", url: "#facilities" }, { t: "Events", url: "#events" }, { t: "Contact", url: "#contact" }
+];
+
+/* ---------- Pages: extra data ---------- */
+/* WhatsApp number that receives enquiries (country code + number, digits only) */
+const WHATSAPP = "918105743360";
+
+/* Approved tuition fee 2025-26: [class, fee in rupees] */
+const FEES = [["Class I",18000],["Class II",18000],["Class III",18000],["Class IV",18000],["Class V",20000],["Class VI",20000],["Class VII",20000],["Class VIII",23000]];
+
+const TRUST = [
+  ["Sri. Hasan Sab U P", "President"],
+  ["Sri. Khajavali", "Vice-President"],
+  ["Sri. Tanzeer H M", "Secretary"],
+  ["Sri. Tanveer H M", "Joint Secretary"],
+  ["Sri. Tanish K S", "Treasurer"]
+];
+
+/* Capacity Building Programs: [program, date, teachers, hours] — add rows as teachers attend */
+const CBP = [];
+
+/* Academic calendar: link a PDF in ACADEMIC above (row 2) to show a download button */
+const CALENDAR = [
+  ["April", "New session begins; orientation", "Ambedkar Jayanti"],
+  ["May", "Summer vacation", ""],
+  ["June", "School reopens; Periodic Test 1 prep", "World Environment Day, International Yoga Day"],
+  ["July", "Periodic Test 1", "Investiture ceremony"],
+  ["August", "Subject enrichment activities", "Independence Day"],
+  ["September", "Half-yearly examinations", "Teachers' Day"],
+  ["October", "Results & PTM; Dasara vacation", "Gandhi Jayanti"],
+  ["November", "Periodic Test 2", "Kannada Rajyotsava, Children's Day"],
+  ["December", "Sports Day", "Annual Day"],
+  ["January", "Revision", "Republic Day"],
+  ["February", "Annual examination preparation", "Science Day"],
+  ["March", "Annual examinations; results", ""]
+];
+
+/* Houses: [name, colour, motto/description] */
+const HOUSES = [
+  ["[House 1]", "#B3261E", "Red house — courage and energy."],
+  ["[House 2]", "#1E5AA8", "Blue house — calm and wisdom."],
+  ["[House 3]", "#2E7D4F", "Green house — growth and care for nature."],
+  ["[House 4]", "#D49A12", "Yellow house — joy and brightness."]
+];
+
+/* Events: { date: "YYYY-MM-DD", title, text, link } — newest shown first */
+const EVENTS = [];
+</script>
+
+<a href="#home" style="position:absolute;left:-9999px">Skip to content</a>
+<div class="strip"><div class="wrap">
+  <div class="grp" id="phones"></div>
+  <div class="grp"><span class="motto" id="motto"></span><span id="affTop"></span><a class="pill" id="admTop" href="#admissions"></a></div>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="#home"><span class="crest" id="crest"></span><span><b id="bName"></b><small id="bCity"></small></span></a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="main" id="nav" aria-label="Main"></nav>
+</div></header>
+
+<section class="banner" id="banner"><div class="wrap">
+  <div class="eyebrow" id="bnEyebrow">CBSE Affiliated School</div>
+  <h1 id="bnTitle">Mandatory Disclosure</h1>
+  <div class="crumbs" id="bnCrumbs"></div>
+</div></section>
+
+<!-- ================= HOME ================= -->
+<div class="page" data-page="home" data-title="Home">
+  <section class="hero"><div class="wrap">
+    <div>
+      <div class="kicker">CBSE Affiliated · Affiliation No. 831768 · Kotturu</div>
+      <h1>Wisdom Wings English Medium School</h1>
+      <p class="lead">An English medium school on Itagi Road, Kotturu, following the CBSE curriculum. Run by Taata Education Trust (R), Bannigola, as a non-profit community service.</p>
+      <div class="btnrow"><a class="btn p" href="#admissions">Admissions 2027-28</a><a class="btn s" href="#contact">Enquire Now</a></div>
+    </div>
+    <div class="factcard"><img src="img/logo.png" alt="Wisdom Wings / Taata Education Trust logo" style="width:150px;height:150px;display:block;margin:-82px auto 14px;filter:drop-shadow(0 6px 14px rgba(84,22,27,.25))"><dl>
+      <div><dt>CBSE Affiliation No.</dt><dd>831768</dd></div>
+      <div><dt>School Code</dt><dd>47452</dd></div>
+      <div><dt>Principal</dt><dd>Ekanta Naik N Y</dd></div>
+      <div><dt>Medium</dt><dd>English</dd></div>
+      <div><dt>Managed by</dt><dd>Taata Education Trust (R)</dd></div>
+    </dl></div>
+  </div></section>
+  <section class="stats"><div class="wrap">
+    <div><b>23</b><span>Qualified teachers</span></div>
+    <div><b>4,654</b><span>Sq. m campus</span></div>
+    <div><b>G+3</b><span>Certified safe building</span></div>
+    <div><b>1</b><span>Special educator on staff</span></div>
+  </div></section>
+  <div class="wrap">
+    <section class="block two">
+      <div class="prose">
+        <div class="kicker">Welcome</div>
+        <h2>Learning that gives every child wings</h2>
+        <p>Wisdom Wings English Medium School gives children in Kotturu and the surrounding villages a CBSE education close to home. Our classrooms, library and laboratory are housed in a building certified for structural and fire safety, and our drinking water is tested regularly.</p>
+        <p>Our 23 teachers include post-graduate and trained graduate teachers, nursery teachers, physical education staff, a special educator and a counsellor, so each child is supported academically and personally.</p>
+        <a class="btn s" href="#about">About the school</a>
+      </div>
+      <div>
+        <div class="quote">“Education should open a child's mind, build good character and prepare them to serve society with confidence.”
+          <div class="sign"><b>Ekanta Naik N Y</b>, Principal · <a href="#principal" style="color:var(--terra)">Read the message</a></div></div>
+      </div>
+    </section>
+    <section class="block">
+      <div class="kicker">Explore</div>
+      <h2 class="pg-h2">Everything parents need</h2>
+      <div class="grid">
+        <div class="card"><h3>Admissions</h3><p>How to apply, documents required and the admission process for 2027-28.</p><a class="go" href="#admissions">View admissions →</a></div>
+        <div class="card"><h3>Facilities</h3><p>Classrooms, laboratory, library, internet, safe water and certified safety.</p><a class="go" href="#facilities">See facilities →</a></div>
+        <div class="card"><h3>Academics</h3><p>Our academic calendar, assessment framework and co-curricular programme.</p><a class="go" href="#calendar">Academic calendar →</a></div>
+        <div class="card"><h3>Mandatory Disclosure</h3><p>CBSE-required information, certificates, staff and infrastructure details.</p><a class="go" href="#mandatory-disclosure">View disclosure →</a></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page wrap" data-page="about" data-title="About the School" data-crumb="About Us">
+  <section class="block two">
+    <div class="prose">
+      <div class="kicker">Our story</div>
+      <h2>A community school for Kotturu</h2>
+      <p>Wisdom Wings English Medium School is run by <b>Taata Education Trust (R), Bannigola</b>, a registered trust first registered in July 2019 (Document No. HBH-2019-20) and rectified in December 2025. The school is located at Siddaganga Nagara, 19th Ward, Itagi Road, Kotturu, in Vijayanagara District.</p>
+      <p>The school is affiliated to the Central Board of Secondary Education, New Delhi (Affiliation No. 831768, School Code 47452) and follows the CBSE curriculum with English as the medium of instruction.</p>
+      <p>The trust runs the school as a community service and not as a business. No part of the school's income is diverted to any individual; savings are used only to develop the school.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr">
+      <div class="card cream"><h3>Our Vision</h3><p>To nurture confident, curious and responsible young people who carry strong values and a love of learning into everything they do.</p></div>
+      <div class="card cream"><h3>Our Mission</h3><p>To provide quality CBSE education in English to children of Kotturu and nearby villages, in a safe and caring campus, with qualified teachers who know every child.</p></div>
+    </div>
+  </section>
+  <section class="block">
+    <div class="kicker">Management</div>
+    <h2 class="pg-h2">Office bearers of Taata Education Trust (R)</h2>
+    <div class="tbl" style="border-top:1px solid var(--line);border-radius:8px"><table><thead><tr><th>S.No</th><th>Name</th><th>Designation</th></tr></thead><tbody id="tTrust"></tbody></table></div>
+  </section>
+</div>
+
+<!-- ================= PRINCIPAL ================= -->
+<div class="page wrap" data-page="principal" data-title="Principal's Message" data-crumb="About Us">
+  <section class="block two">
+    <div class="prose">
+      <div class="kicker">From the Principal's desk</div>
+      <h2>Dear parents and students,</h2>
+      <p>It gives me great joy to welcome you to Wisdom Wings English Medium School. Our name reflects what we hope for every child: the wisdom to make good choices and the wings to rise to their full potential.</p>
+      <p>At Wisdom Wings, learning goes beyond textbooks. We follow the CBSE curriculum with care, and we give equal importance to discipline, values, sports, arts and communication skills. Our teachers know each child by name, and they work to understand how each one learns best.</p>
+      <p>We believe that school and home are partners. I warmly invite parents to stay in touch with us, attend meetings and share your thoughts, so that together we can give our children the best possible start in life.</p>
+      <p>I look forward to welcoming you to our campus.</p>
+      <p class="sign"><b>Ekanta Naik N Y</b><br>M.A., B.Ed. (English)<br>Principal, Wisdom Wings English Medium School, Kotturu</p>
+    </div>
+    <div class="card cream">
+      <h3>Leadership team</h3>
+      <ul class="tick">
+        <li><b>Ekanta Naik N Y</b> — Principal<br><small>M.A., B.Ed. (English)</small></li>
+        <li><b>Lalitha P</b> — Vice Principal; Counsellor &amp; Wellness Teacher<br><small>M.A., B.Ed.</small></li>
+        <li><b>Basavaraj Marabada</b> — Special Educator</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CBP ================= -->
+<div class="page wrap" data-page="cbp" data-title="Capacity Building Programs" data-crumb="About Us">
+  <section class="block prose">
+    <div class="kicker">Teacher development</div>
+    <h2>Capacity Building Programs (CBP)</h2>
+    <p>CBSE expects every teacher to take part in at least 50 hours of continuous professional development each year. Our teachers attend CBSE Centre of Excellence workshops, online CBSE training and in-house sessions on subject teaching, assessment, child safety and wellbeing.</p>
+  </section>
+  <section class="block" style="padding-top:0">
+    <h3 class="pg-h3">Programs attended</h3>
+    <div class="tbl" style="border-top:1px solid var(--line);border-radius:8px"><table><thead><tr><th>S.No</th><th>Program</th><th>Date</th><th>Teachers</th><th>Hours</th></tr></thead><tbody id="tCbp"></tbody></table></div>
+  </section>
+</div>
+
+<!-- ================= MANDATORY DISCLOSURE ================= -->
+<main class="page wrap" data-page="mandatory-disclosure" data-title="Mandatory Disclosure" data-crumb="About Us" style="padding-block:12px 56px">
+  <div class="index" aria-label="Sections">
+    <button data-jump="general"><b>A</b>General Information</button>
+    <button data-jump="documents"><b>B</b>Documents</button>
+    <button data-jump="results"><b>C</b>Result &amp; Academic</button>
+    <button data-jump="staff"><b>D</b>Staff</button>
+    <button data-jump="infra"><b>E</b>Infrastructure</button>
+  </div>
+  <section class="sec" id="general">
+    <div class="sec-h"><span class="ltr">A</span><h2>General Information</h2></div>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Information</th><th>Details</th></tr></thead><tbody id="tGeneral"></tbody></table></div>
+  </section>
+  <section class="sec" id="documents">
+    <div class="sec-h"><span class="ltr">B</span><h2>Documents and Information</h2></div>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Documents / Information</th><th>Upload Documents</th></tr></thead><tbody id="tDocs"></tbody></table></div>
+  </section>
+  <section class="sec" id="results">
+    <div class="sec-h"><span class="ltr">C</span><h2>Result and Academic</h2></div>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Documents / Information</th><th>Upload Documents</th></tr></thead><tbody id="tAcad"></tbody></table></div>
+    <div id="resultTables"></div>
+  </section>
+  <section class="sec" id="staff">
+    <div class="sec-h"><span class="ltr">D</span><h2>Staff (Teaching)</h2></div>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Information</th><th>Details</th></tr></thead><tbody id="tStaff"></tbody></table></div>
+    <div id="teacherTables"></div>
+  </section>
+  <section class="sec" id="infra">
+    <div class="sec-h"><span class="ltr">E</span><h2>School Infrastructure</h2></div>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Information</th><th>Details</th></tr></thead><tbody id="tInfra"></tbody></table></div>
+  </section>
+  <p class="updated" id="updated"></p>
+</main>
+
+<!-- ================= ACADEMIC CALENDAR ================= -->
+<div class="page wrap" data-page="calendar" data-title="Academic Calendar" data-crumb="Academics">
+  <section class="block prose">
+    <div class="kicker">Session 2026-27</div>
+    <h2>Academic Calendar</h2>
+    <p>The academic session runs from April to March, following the CBSE pattern. Exact dates for holidays and events are announced in the school diary and on this page.</p>
+    <div id="calPdf" style="margin-top:10px"></div>
+  </section>
+  <section class="block" style="padding-top:0">
+    <div class="tbl" style="border-top:1px solid var(--line);border-radius:8px"><table><thead><tr><th>Month</th><th>Academic activities</th><th>Events &amp; holidays</th></tr></thead><tbody id="tCal"></tbody></table></div>
+  </section>
+</div>
+
+<!-- ================= ASSESSMENT ================= -->
+<div class="page wrap" data-page="assessment" data-title="Assessment Framework" data-crumb="Academics">
+  <section class="block prose">
+    <div class="kicker">How we assess</div>
+    <h2>Assessment Framework</h2>
+    <p>We follow CBSE guidelines and the National Education Policy 2020. Assessment is continuous and looks at the whole child: understanding, skills, effort and attitude, not just marks in an exam.</p>
+  </section>
+  <section class="block" style="padding-top:0">
+    <div class="grid">
+      <div class="card"><h3>Pre-primary</h3><p>Play-based learning under our nursery teachers. Progress is recorded through observation of language, numbers, motor skills and social behaviour. No formal examinations.</p></div>
+      <div class="card"><h3>Classes I – V</h3><p>Regular class work, oral and written tests, projects and activities. Two terms each year, with a progress report at the end of each term.</p></div>
+      <div class="card"><h3>Classes VI – VIII</h3><p>Periodic tests, notebook submission, subject enrichment activities and portfolios, along with half-yearly and annual examinations as per CBSE.</p></div>
+    </div>
+  </section>
+  <section class="block" style="padding-top:0">
+    <h3 class="pg-h3">Weightage for Classes VI – VIII (each term)</h3>
+    <div class="tbl" style="border-top:1px solid var(--line);border-radius:8px"><table><thead><tr><th>Component</th><th>Marks</th></tr></thead><tbody>
+      <tr><td class="lbl">Periodic Test</td><td class="num">10</td></tr>
+      <tr><td class="lbl">Notebook Submission</td><td class="num">5</td></tr>
+      <tr><td class="lbl">Subject Enrichment Activity</td><td class="num">5</td></tr>
+      <tr><td class="lbl">Half-Yearly / Annual Examination</td><td class="num">80</td></tr>
+      <tr><td class="lbl"><b>Total</b></td><td class="num"><b>100</b></td></tr>
+    </tbody></table></div>
+  </section>
+</div>
+
+<!-- ================= HOUSES ================= -->
+<div class="page wrap" data-page="houses" data-title="School Houses" data-crumb="Academics › Co-curricular">
+  <section class="block prose">
+    <div class="kicker">Co-curricular</div>
+    <h2>School Houses</h2>
+    <p>Every student belongs to one of four houses. Houses compete in sports, quizzes, debates, cultural programmes and cleanliness drives through the year, building teamwork, leadership and school spirit.</p>
+  </section>
+  <section class="block" style="padding-top:0"><div class="grid" id="houseGrid"></div></section>
+</div>
+
+<!-- ================= SATURDAY ================= -->
+<div class="page wrap" data-page="saturday" data-title="Saturday Activities" data-crumb="Academics › Co-curricular">
+  <section class="block prose">
+    <div class="kicker">Co-curricular</div>
+    <h2>Saturday Activities</h2>
+    <p>Saturdays are for learning by doing. Students take part in activities that build creativity, fitness, values and life skills, alongside a shorter academic schedule.</p>
+  </section>
+  <section class="block" style="padding-top:0"><div class="grid">
+    <div class="card"><h3>Yoga &amp; Sports</h3><p>Yoga, drills and outdoor games led by our physical education teachers.</p></div>
+    <div class="card"><h3>Art &amp; Craft</h3><p>Drawing, painting, clay work and craft projects.</p></div>
+    <div class="card"><h3>Music &amp; Dance</h3><p>Group songs, patriotic songs and folk dance practice.</p></div>
+    <div class="card"><h3>Clubs</h3><p>Reading, science, eco and quiz clubs that run house-wise.</p></div>
+    <div class="card"><h3>Values &amp; Life Skills</h3><p>Moral stories, health and hygiene talks, and road safety.</p></div>
+    <div class="card"><h3>Public Speaking</h3><p>Assembly presentations, elocution and debates in English.</p></div>
+  </div></section>
+</div>
+
+<!-- ================= ADMISSIONS ================= -->
+<div class="page wrap" data-page="admissions" data-title="Admissions" data-crumb="">
+  <section class="block two">
+    <div class="prose">
+      <div class="kicker">Admissions open for 2027-28</div>
+      <h2>Join Wisdom Wings</h2>
+      <p>We welcome applications for pre-primary and primary classes and for higher classes where seats are available. Visit the school office or send an enquiry, and our team will guide you through the process.</p>
+      <h3 class="pg-h3" style="margin-top:24px">Admission process</h3>
+      <ol class="steps">
+        <li><span><b>Enquire</b>Call us, visit the office or send an enquiry from the Contact page.</span></li>
+        <li><span><b>Collect the application form</b>Available at the school office during working hours.</span></li>
+        <li><span><b>Submit with documents</b>Return the filled form along with the documents listed here.</span></li>
+        <li><span><b>Interaction</b>A short, friendly interaction with the child and parents.</span></li>
+        <li><span><b>Confirm admission</b>Pay the admission fee to confirm the seat.</span></li>
+      </ol>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr">
+      <div class="card cream"><h3>Documents required</h3><ul class="tick">
+        <li>Birth certificate of the child</li><li>Aadhaar card of the child and parents</li>
+        <li>Transfer certificate (Class II onwards)</li><li>Previous year's report card</li>
+        <li>4 passport-size photographs of the child</li><li>Caste / income certificate, if applicable</li></ul></div>
+      <div class="card"><h3>Fee structure 2025-26</h3>
+        <div style="overflow-x:auto"><table style="min-width:0;font-size:.92rem"><thead><tr><th>Class</th><th style="text-align:right">Annual tuition fee</th></tr></thead><tbody id="tFee"></tbody></table></div>
+        <div id="feeBtn" style="margin-top:12px"></div></div>
+      <div class="card"><h3>Ready to apply?</h3><p>Send us an enquiry and we will call you back.</p><a class="go" href="#contact">Send an enquiry →</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FACILITIES ================= -->
+<div class="page wrap" data-page="facilities" data-title="Facilities" data-crumb="">
+  <section class="block prose">
+    <div class="kicker">Our campus</div>
+    <h2>A safe, well-equipped campus</h2>
+    <p>Our campus covers 4,653.885 sq. m on Itagi Road, Kotturu. The school building has a ground floor and three upper floors, and is certified safe by the Public Works Department and the Karnataka State Fire and Emergency Services.</p>
+  </section>
+  <section class="block" style="padding-top:0"><div class="grid">
+    <div class="card"><h3>Classrooms</h3><p>Spacious, well-lit classrooms of 55.18 sq. m each.</p></div>
+    <div class="card"><h3>Computer Lab</h3><p>A 92 sq. m computer lab for digital skills and computer science.</p></div>
+    <div class="card"><h3>Maths &amp; Composite Labs</h3><p>A 78 sq. m maths lab and a 78 sq. m composite science lab for hands-on learning.</p></div>
+    <div class="card"><h3>Library</h3><p>An 85 sq. m library to build the reading habit from an early age.</p></div>
+    <div class="card"><h3>Internet</h3><p>Internet access on campus to support teaching and digital learning.</p></div>
+    <div class="card"><h3>Safe drinking water</h3><p>Drinking water tested by an ISO 9001-2015 certified laboratory.</p><a class="go" href="docs/water-test-report.pdf" target="_blank" rel="noopener">Water test report →</a></div>
+    <div class="card"><h3>Health &amp; sanitation</h3><p>15 toilets for girls and 15 for boys. Inspected by the Taluk Health Office.</p><a class="go" href="docs/health-sanitary-certificate.pdf" target="_blank" rel="noopener">Health certificate →</a></div>
+    <div class="card"><h3>Fire safety</h3><p>Fire safety measures inspected and certified by the District Fire Officer, Vijayanagara.</p><a class="go" href="docs/fire-safety-certificate.pdf" target="_blank" rel="noopener">Fire certificate →</a></div>
+    <div class="card"><h3>Building safety</h3><p>Building certified as per the National Building Code by PWD, Kudligi.</p><a class="go" href="docs/building-safety-certificate.pdf" target="_blank" rel="noopener">Building certificate →</a></div>
+    <div class="card"><h3>Campus video</h3><p>Watch the infrastructure inspection video of our school.</p><a class="go" href="https://youtu.be/1glI1nUjMiU" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+  </div></section>
+</div>
+
+<!-- ================= EVENTS ================= -->
+<div class="page wrap" data-page="events" data-title="Events" data-crumb="">
+  <section class="block prose">
+    <div class="kicker">School life</div>
+    <h2>Events &amp; Celebrations</h2>
+    <p>Annual day, sports day, national festivals, competitions and other happenings at Wisdom Wings.</p>
+  </section>
+  <section class="block" style="padding-top:0"><div class="grid" id="eventList"></div></section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page wrap" data-page="contact" data-title="Contact Us" data-crumb="">
+  <section class="block two">
+    <div>
+      <div class="kicker">Send an enquiry</div>
+      <h2 class="pg-h2">We'd love to hear from you</h2>
+      <form class="enq-form" id="enqForm" novalidate>
+        <div class="f-row">
+          <label class="f">Parent's name<input id="fParent" required autocomplete="name"></label>
+          <label class="f">Mobile number<input id="fPhone" required inputmode="tel" autocomplete="tel"></label>
+        </div>
+        <div class="f-row">
+          <label class="f">Child's name<input id="fChild"></label>
+          <label class="f">Class seeking admission<select id="fClass">
+            <option>Nursery</option><option>LKG</option><option>UKG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>General enquiry</option></select></label>
+        </div>
+        <label class="f">Message<textarea id="fMsg" rows="4"></textarea></label>
+        <p class="f-err" id="fErr" hidden></p>
+        <div class="btnrow"><button class="btn p" type="submit">Send on WhatsApp</button></div>
+        <p class="f-note">This opens WhatsApp with your message ready to send to the school office.</p>
+        <div class="f-ok" id="fOk" hidden></div>
+      </form>
+    </div>
+    <div class="card cream">
+      <h3>School office</h3>
+      <div id="contactLines"></div>
+      <div class="btnrow" style="margin-top:14px"><a class="btn s" id="mapLink" target="_blank" rel="noopener">Open in Google Maps</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PRIVACY / TERMS ================= -->
+<div class="page wrap" data-page="privacy" data-title="Privacy Policy" data-crumb="">
+  <section class="block prose">
+    <h2>Privacy Policy</h2>
+    <p>This website does not collect or store personal information. When you send an enquiry, your message goes directly to the school through WhatsApp, and the school uses it only to respond to you.</p>
+    <p>Information about students and parents held by the school is used only for school purposes and is not shared with others except where required by law or by CBSE.</p>
+  </section>
+</div>
+<div class="page wrap" data-page="terms" data-title="Terms of Service" data-crumb="">
+  <section class="block prose">
+    <h2>Terms of Service</h2>
+    <p>The information on this website is provided by Wisdom Wings English Medium School for the general information of parents and the public. Certificates and documents are published as required by CBSE.</p>
+    <p>While we keep this information up to date, please contact the school office to confirm admission dates, fees and other details before acting on them.</p>
+  </section>
+</div>
+
+<section class="cta"><div class="wrap">
+  <div><h2>Begin Your Child's Journey with Us</h2><p id="ctaText"></p></div>
+  <div class="btnrow"><a class="btn" style="background:#fff;color:var(--terra);border-color:#fff" href="#admissions">Apply Now</a><a class="btn" style="color:#fff;border-color:#fff" href="#contact">Schedule A Visit</a></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><img src="img/logo.png" alt="" style="width:72px;height:72px;margin-bottom:10px"><h4 id="fName"></h4><p id="fTag" style="margin:0 0 10px"></p><p id="fAff" style="margin:0 0 10px"></p><ul id="fSocial" style="display:flex;gap:14px"></ul></div>
+    <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#events">Events</a></li><li><a href="#admissions">Admissions</a></li><li><a href="#mandatory-disclosure">Mandatory Disclosure</a></li></ul></div>
+    <div><h4>Contact Us</h4><ul id="fContact"></ul></div>
+    <div><h4>Affiliations</h4><ul>
+      <li class="aff"><span class="seal">CBSE</span><span><b>CBSE Affiliated</b><br>Central Board of Secondary Education, New Delhi</span></li>
+      <li class="aff"><img src="img/logo.png" alt="" style="width:40px;height:40px;flex:none"><span><b id="pb"></b><br><span id="pbs"></span></span></li>
+    </ul></div>
+  </div>
+</div>
+<div class="legal-bar"><div class="wrap legal"><span id="copy"></span><span><a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a></span></div></div>
+</footer>
+
+<button class="totop" id="totop" aria-label="Scroll to top" hidden>↑</button>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const val = s => { s = String(s ?? ""); return /^\[.*\]$/.test(s.trim()) ? `<span class="ph">${esc(s.slice(1,-1))}</span>` : esc(s); };
+  const icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  const one = (url, label) => `<a class="btn-view" href="${esc(url)}" target="_blank" rel="noopener">${icon}${esc(label)}</a>`;
+  const view = (url, label="View") => Array.isArray(url) ? `<div style="display:flex;flex-wrap:wrap;gap:6px">${url.map(u=>one(u[1],u[0])).join("")}</div>` : url ? one(url, label) : `<span class="pend">Pending upload</span>`;
+  const tblRows = (rows) => rows.map((r,i)=>`<tr><td class="no">${i+1}</td>${r.map((c,j)=>`<td${j===0?' class="lbl"':''}>${val(c)}</td>`).join("")}</tr>`).join("");
+
+  /* ---------- header, strip ---------- */
+  $("phones").innerHTML = SCHOOL.phones.map(p => `<span>☎ ${val(p)}</span>`).join("");
+  $("motto").textContent = SCHOOL.motto; $("motto").hidden = !SCHOOL.motto;
+  $("affTop").innerHTML = "CBSE Affiliation No: " + val(SCHOOL.affiliationNo);
+  $("admTop").textContent = SCHOOL.admissionsText;
+  $("crest").innerHTML = SCHOOL.logo ? `<img src="${esc(SCHOOL.logo)}" alt="${esc(SCHOOL.name)} logo">` : esc(SCHOOL.initials);
+  $("bName").innerHTML = val(SCHOOL.name); $("bCity").innerHTML = val(SCHOOL.city);
+  $("bnEyebrow").innerHTML = "CBSE Affiliated School — " + val(SCHOOL.city);
+
+  /* ---------- nav ---------- */
+  const navHTML = (items, top) => "<ul>" + items.map(i => i.sub
+    ? `<li><button aria-haspopup="true" data-group="${esc(i.sub.map(s=>s.url).join(" "))}">${val(i.t)} ▾</button><div class="sub">${navHTML(i.sub)}</div></li>`
+    : `<li><a href="${esc(i.url)}">${val(i.t)}</a></li>`).join("")
+    + (top ? `<li><a class="enq" href="#contact">Enquire Now</a></li>` : "") + "</ul>";
+  $("nav").innerHTML = navHTML(NAV, true);
+  $("nav").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (b) { b.parentElement.classList.toggle("open"); return; }
+    if (e.target.closest("a")) { $("nav").classList.remove("show"); $("burger").setAttribute("aria-expanded","false");
+      $("nav").querySelectorAll("li.open").forEach(li=>li.classList.remove("open")); }
+  });
+  $("burger").onclick = () => { const s = $("nav").classList.toggle("show"); $("burger").setAttribute("aria-expanded", s); };
+  document.addEventListener("click", e => { if (!e.target.closest("#nav")) $("nav").querySelectorAll("li.open").forEach(li=>li.classList.remove("open")); });
+
+  /* ---------- Mandatory disclosure ---------- */
+  $("tGeneral").innerHTML = GENERAL.map((r,i) => `<tr><td class="no">${i+1}</td><td class="lbl">${esc(r[0])}</td><td>${val(r[1])}</td></tr>`).join("");
+  const docRows = list => list.map((d,i) => `<tr><td class="no">${i+1}</td><td class="lbl">${esc(d.t)}</td><td>${view(d.url)}</td></tr>`).join("");
+  $("tDocs").innerHTML = docRows(DOCUMENTS);
+  $("tAcad").innerHTML = docRows(ACADEMIC);
+  $("resultTables").innerHTML = Object.entries(RESULTS).map(([cls, rows]) => `
+    <h3>Result ${esc(cls)}</h3>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Year</th><th>No. of Registered Students</th><th>No. of Students Passed</th><th>Pass Percentage</th><th>Remarks</th></tr></thead><tbody>
+    ${rows.map((r,i) => { const reg=+r[1], pass=+r[2]; const has = reg>0 && r[2]!=="";
+      const pct = has ? (pass/reg*100) : null;
+      const pctTxt = pct===null ? '<span class="ph">auto</span>' : `<span class="pct${pct===100?' full':''}">${pct===100?'100':pct.toFixed(2)}%</span>`;
+      return `<tr><td class="no">${i+1}</td><td class="num">${val(r[0])}</td><td class="num">${r[1]===""?'<span class="ph">—</span>':val(r[1])}</td><td class="num">${r[2]===""?'<span class="ph">—</span>':val(r[2])}</td><td>${pctTxt}</td><td>${val(r[3]||"NIL")}</td></tr>`; }).join("")}
+    </tbody></table></div>`).join("");
+  let n = 0;
+  $("tStaff").innerHTML = STAFF.map(s => `<tr${s.child?' class="child"':''}><td class="no">${s.child?'':++n}</td><td class="lbl">${esc(s.t)}</td><td class="num">${val(s.v)}</td></tr>`).join("");
+  $("teacherTables").innerHTML = Object.entries(TEACHERS).map(([g, list]) => `
+    <h3>${esc(g)} Teachers (${list.length})</h3>
+    <div class="tbl"><table><thead><tr><th>S.No</th><th>Name</th><th>Qualification</th></tr></thead><tbody>
+    ${list.map((r,i)=>`<tr><td class="no">${i+1}</td><td class="lbl">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}
+    </tbody></table></div>`).join("");
+  $("tInfra").innerHTML = INFRA.map((r,i) => {
+    let d;
+    if (r.labs) d = `<b>${r.labs.length-1} Lab${r.labs.length>2?"s":""} &amp; 1 Library</b><ul class="labs">${r.labs.map(l=>`<li><span>${esc(l[0])}</span><span class="num">${val(l[1])}</span></li>`).join("")}</ul>`;
+    else if ("video" in r) d = view(r.video, "Watch Video");
+    else d = val(r.v);
+    return `<tr><td class="no">${i+1}</td><td class="lbl">${esc(r.t)}</td><td>${d}</td></tr>`; }).join("");
+  $("updated").innerHTML = "Information last updated on " + val(SCHOOL.lastUpdated);
+  document.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => $(b.dataset.jump).scrollIntoView({behavior:"smooth"}));
+
+  /* ---------- other pages ---------- */
+  $("tTrust").innerHTML = tblRows(TRUST);
+  $("tCbp").innerHTML = CBP.length ? tblRows(CBP)
+    : `<tr><td colspan="5" style="text-align:center;padding:28px;color:var(--text)">Programs attended by our teachers will be listed here.</td></tr>`;
+  $("tCal").innerHTML = CALENDAR.map(r => `<tr><td class="lbl"><b>${esc(r[0])}</b></td><td>${val(r[1])}</td><td>${val(r[2])||"—"}</td></tr>`).join("");
+  const calDoc = ACADEMIC[1] && ACADEMIC[1].url;
+  $("calPdf").innerHTML = calDoc ? view(calDoc, "Download full calendar (PDF)") : "";
+  const feeDoc = ACADEMIC[0] && ACADEMIC[0].url;
+  $("tFee").innerHTML = FEES.map(f=>`<tr><td class="lbl">${esc(f[0])}</td><td class="num" style="text-align:right">₹ ${f[1].toLocaleString("en-IN")}</td></tr>`).join("");
+  $("feeBtn").innerHTML = feeDoc ? view(feeDoc, "View approved fee structure (PDF)") : `<span class="pend">Fee structure will be published soon</span>`;
+  $("houseGrid").innerHTML = HOUSES.map(h => `<div class="card house" style="--hc:${esc(h[1])}"><h3><span class="sw"></span>${val(h[0])}</h3><p>${esc(h[2])}</p></div>`).join("");
+  const evs = EVENTS.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  $("eventList").innerHTML = evs.length ? evs.map(e => { const [y,m,d] = e.date.split("-");
+      return `<div class="card event"><div class="date"><b>${+d}</b>${MON[+m-1]} ${y}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.text||"")}</p>${e.link?`<a class="go" href="${esc(e.link)}" target="_blank" rel="noopener">See photos →</a>`:""}</div></div>`; }).join("")
+    : `<div class="empty" style="grid-column:1/-1"><h3>Events coming soon</h3><p>Photos and news from school events will appear here. Follow us for updates, or call the office for upcoming dates.</p></div>`;
+
+  /* contact */
+  const lines = [["Address", SCHOOL.address], ["Phone", SCHOOL.phones[0]], ["Phone", SCHOOL.phones[1]], ["Email", SCHOOL.email], ["Hours", SCHOOL.hours]];
+  $("contactLines").innerHTML = lines.map(([k,v],i) => `<div class="copyline"><span class="k">${k}</span><span class="v" id="cl${i}">${val(v)}</span>${k==="Hours"?"":`<button class="mini" data-copy="cl${i}" type="button">Copy</button>`}</div>`).join("");
+  $("contactLines").addEventListener("click", e => {
+    const b = e.target.closest("[data-copy]"); if (!b) return;
+    const el = $(b.dataset.copy), txt = el.textContent;
+    const done = () => { b.textContent = "Copied"; setTimeout(()=>b.textContent="Copy", 1500); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; setTimeout(()=>b.textContent="Copy", 1500); };
+    try { navigator.clipboard.writeText(txt).then(done, sel); } catch(_) { sel(); }
+  });
+  $("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(SCHOOL.name + ", " + SCHOOL.address);
+  $("enqForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const p = $("fParent").value.trim(), ph = $("fPhone").value.trim();
+    if (!p || ph.replace(/\D/g,"").length < 10) { $("fErr").textContent = "Please enter your name and a 10-digit mobile number."; $("fErr").hidden = false; return; }
+    $("fErr").hidden = true;
+    const msg = `Admission enquiry – ${SCHOOL.name}\nParent: ${p}\nMobile: ${ph}\nChild: ${$("fChild").value.trim()||"-"}\nClass: ${$("fClass").value}\n${$("fMsg").value.trim()}`;
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    $("fOk").innerHTML = `Your message is ready. If WhatsApp did not open, <a href="${url}" target="_blank" rel="noopener">tap here to send it</a>, or call ${esc(SCHOOL.phones[0])}.`;
+    $("fOk").hidden = false;
+    const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  /* ---------- CTA & footer ---------- */
+  $("ctaText").innerHTML = SCHOOL.admissionsText + " at " + val(SCHOOL.name) + ". Schedule a campus visit or speak with our admissions team.";
+  $("fName").innerHTML = val(SCHOOL.name);
+  $("fTag").innerHTML = val(SCHOOL.tagline);
+  $("fAff").innerHTML = "CBSE Affiliation No: " + val(SCHOOL.affiliationNo);
+  $("fSocial").innerHTML = Object.entries(SCHOOL.social).filter(([,u])=>u && u!=="#").map(([k,u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${k}</a></li>`).join("");
+  $("fContact").innerHTML = [SCHOOL.address, ...SCHOOL.phones, SCHOOL.email, SCHOOL.hours].map(x => `<li>${val(x)}</li>`).join("");
+  $("pb").textContent = SCHOOL.parentBody; $("pbs").textContent = SCHOOL.parentBodySub;
+  $("copy").innerHTML = `© ${new Date().getFullYear()} ${val(SCHOOL.name)}. All rights reserved. | CBSE Affil. No: ${val(SCHOOL.affiliationNo)}`;
+
+  /* ---------- router ---------- */
+  const pages = [...document.querySelectorAll(".page")];
+  const ids = new Set(pages.map(p => p.dataset.page));
+  const mdSections = ["general","documents","results","staff","infra"];
+  function route(){
+    let h = (location.hash || "#home").slice(1), jump = null;
+    if (mdSections.includes(h)) { jump = h; h = "mandatory-disclosure"; }
+    if (!ids.has(h)) h = "home";
+    pages.forEach(p => p.hidden = p.dataset.page !== h);
+    const pg = pages.find(p => p.dataset.page === h);
+    const isHome = h === "home";
+    $("banner").hidden = isHome;
+    if (!isHome) {
+      $("bnTitle").textContent = pg.dataset.title;
+      const c = pg.dataset.crumb;
+      $("bnCrumbs").innerHTML = `<a href="#home">Home</a> › ${c ? esc(c) + " › " : ""}${esc(pg.dataset.title)}`;
+    }
+    document.title = (isHome ? "" : pg.dataset.title + " – ") + SCHOOL.name;
+    $("nav").querySelectorAll("a, button").forEach(el => el.classList.remove("on"));
+    const link = $("nav").querySelector(`a[href="#${h}"]`);
+    if (link) { link.classList.add("on");
+      let li = link.closest("li").parentElement.closest("li"); while (li) { li.querySelector(":scope>button")?.classList.add("on"); li = li.parentElement.closest("li"); } }
+    if (jump) requestAnimationFrame(() => $(jump).scrollIntoView());
+    else scrollTo({ top: 0, behavior: "instant" });
+  }
+  addEventListener("hashchange", route);
+  route();
+
+  addEventListener("scroll", () => { $("totop").hidden = scrollY < 500; }, { passive:true });
+  $("totop").onclick = () => scrollTo({ top:0, behavior:"smooth" });
+})();
+</script>
+
+</body></html>
