@@ -1,4 +1,11 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Wisdom Wings English Medium School, Kotturu – CBSE Affiliation No. 831768. Admissions, facilities, fee structure and CBSE mandatory disclosure.">
+<link rel="icon" type="image/png" href="img/logo.png">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Wisdom Wings School</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap">
@@ -242,7 +249,7 @@ const SCHOOL = {
   parentBody: "Taata Education Trust (R)",
   parentBodySub: "Bannigola, Hagaribommanahalli Tq.",
   social: { Facebook: "#", Instagram: "#", YouTube: "#" },
-  lastUpdated: "10-10-2026"
+  lastUpdated: "11-10-2026"
 };
 
 const GENERAL = [
@@ -259,7 +266,7 @@ const DOCUMENTS = [
   { t: "Copies of Affiliation/Upgradation Letter and Recent Extension of Affiliation, if any", url: [["CBSE Approval Letter", "docs/cbse-approval-letter.pdf"], ["State Recognition Order", "docs/state-recognition-order.pdf"]] },
   { t: "Copies of Societies/Trust/Company Registration/Renewal Certificate, as applicable", url: [["Trust Rectification Deed", "docs/trust-rectification-deed.pdf"], ["Non-Proprietary Affidavit & Trustees", "docs/non-proprietary-affidavit.pdf"]] },
   { t: "Copy of valid Building Safety Certificate as per the National Building Code", url: "docs/building-safety-certificate.pdf" },
-  { t: "Copy of valid Fire Safety Certificate issued by the competent authority", url: "docs/fire-safety-certificate.pdf" },
+  { t: "Copy of valid Fire Safety Certificate issued by the competent authority", url: [["Fire Advise Certificate", "docs/fire-safety-certificate.pdf"], ["Fire Compliance Certificate", "docs/fire-compliance-certificate.pdf"]] },
   { t: "Copy of the DEO Certificate submitted by the school for affiliation/upgradation/extension of affiliation or self certification by school", url: "docs/self-certification.pdf" },
   { t: "Copies of valid Water, Health and Sanitation Certificates", url: [["Health & Sanitary", "docs/health-sanitary-certificate.pdf"], ["Water Test Report", "docs/water-test-report.pdf"]] }
 ];
@@ -325,7 +332,7 @@ const NAV = [
 const WHATSAPP = "918105743360";
 
 /* Approved tuition fee 2025-26: [class, fee in rupees] */
-const FEES = [["Class I",18000],["Class II",18000],["Class III",18000],["Class IV",18000],["Class V",20000],["Class VI",20000],["Class VII",20000],["Class VIII",23000]];
+const FEES = [["Pre-KG",28000],["LKG",30000],["UKG",30000],["Grade 1 – 5",35000],["Grade 6 – 8",37000]];
 
 const TRUST = [
   ["Sri. Hasan Sab U P", "President"],
@@ -366,6 +373,8 @@ const HOUSES = [
 const EVENTS = [];
 </script>
 
+</head>
+<body>
 <a href="#home" style="position:absolute;left:-9999px">Skip to content</a>
 <div class="strip"><div class="wrap">
   <div class="grp" id="phones"></div>
@@ -636,7 +645,7 @@ const EVENTS = [];
     <div class="card"><h3>Internet</h3><p>Internet access on campus to support teaching and digital learning.</p></div>
     <div class="card"><h3>Safe drinking water</h3><p>Drinking water tested by an ISO 9001-2015 certified laboratory.</p><a class="go" href="docs/water-test-report.pdf" target="_blank" rel="noopener">Water test report →</a></div>
     <div class="card"><h3>Health &amp; sanitation</h3><p>15 toilets for girls and 15 for boys. Inspected by the Taluk Health Office.</p><a class="go" href="docs/health-sanitary-certificate.pdf" target="_blank" rel="noopener">Health certificate →</a></div>
-    <div class="card"><h3>Fire safety</h3><p>Fire safety measures inspected and certified by the District Fire Officer, Vijayanagara.</p><a class="go" href="docs/fire-safety-certificate.pdf" target="_blank" rel="noopener">Fire certificate →</a></div>
+    <div class="card"><h3>Fire safety</h3><p>Fire safety measures inspected and certified by the District Fire Officer, Vijayanagara.</p><a class="go" href="docs/fire-compliance-certificate.pdf" target="_blank" rel="noopener">Fire compliance certificate →</a></div>
     <div class="card"><h3>Building safety</h3><p>Building certified as per the National Building Code by PWD, Kudligi.</p><a class="go" href="docs/building-safety-certificate.pdf" target="_blank" rel="noopener">Building certificate →</a></div>
     <div class="card"><h3>Campus video</h3><p>Watch the infrastructure inspection video of our school.</p><a class="go" href="https://youtu.be/1glI1nUjMiU" target="_blank" rel="noopener">Watch on YouTube →</a></div>
   </div></section>
@@ -666,7 +675,7 @@ const EVENTS = [];
         <div class="f-row">
           <label class="f">Child's name<input id="fChild"></label>
           <label class="f">Class seeking admission<select id="fClass">
-            <option>Nursery</option><option>LKG</option><option>UKG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>General enquiry</option></select></label>
+            <option>Pre-KG</option><option>Nursery</option><option>LKG</option><option>UKG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>General enquiry</option></select></label>
         </div>
         <label class="f">Message<textarea id="fMsg" rows="4"></textarea></label>
         <p class="f-err" id="fErr" hidden></p>
@@ -865,4 +874,5 @@ const EVENTS = [];
 })();
 </script>
 
-</body></html>
+</body>
+</html>
