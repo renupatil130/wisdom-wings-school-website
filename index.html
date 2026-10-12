@@ -199,6 +199,28 @@ ol.steps b{color:var(--maroon);display:block}
 .house .sw{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--hc);margin-right:8px;vertical-align:middle}
 .empty{text-align:center;padding:48px 20px;border:1.5px dashed var(--sand);border-radius:12px;background:var(--stripe)}
 .empty h3{font-family:var(--display);color:var(--maroon);font-size:1.5rem;margin:0 0 6px}
+.evlist{display:grid;gap:28px}
+.ev{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:0 4px 14px rgba(112,31,37,.05);display:grid;gap:16px}
+.ev-head h3{font-family:var(--display);font-weight:700;color:var(--maroon);font-size:1.6rem;margin:4px 0 6px;text-wrap:balance}
+.ev-head p{margin:0;max-width:75ch}
+.ev-date{display:inline-block;background:var(--maroon);color:var(--gold-lt);font-weight:600;font-size:.82rem;padding:3px 12px;border-radius:999px}
+.ev-photos{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.ev-photos.one{grid-template-columns:minmax(0,640px)}
+.ev-ph{padding:0;border:0;background:var(--cream);border-radius:8px;overflow:hidden;cursor:zoom-in;aspect-ratio:16/10;max-width:100%}
+.ev-photos.one .ev-ph{aspect-ratio:16/9}
+.ev-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.ev-ph:hover img{transform:scale(1.04)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(30,10,12,.92);display:flex;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 56px calc(16px + env(safe-area-inset-bottom,0px))}
+.lb[hidden]{display:none!important}
+.lb figure{margin:0;display:grid;gap:10px;justify-items:center;max-width:100%}
+.lb img{max-width:100%;max-height:82vh;border-radius:6px;object-fit:contain}
+.lb figcaption{color:#F4ECDD;font-size:.95rem;text-align:center}
+.lb-btn{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:1.8rem;line-height:1;cursor:pointer}
+.lb-btn:hover{background:var(--terra)}
+.lb-close{top:calc(14px + env(safe-area-inset-top,0px));right:14px}
+.lb-prev{left:8px;top:50%;transform:translateY(-50%)}
+.lb-next{right:8px;top:50%;transform:translateY(-50%)}
+@media (prefers-reduced-motion:reduce){.ev-ph img{transition:none}}
 .event{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
 .event .date{background:var(--maroon);color:var(--white);border-radius:8px;text-align:center;padding:8px 4px;line-height:1.1}
 .event .date b{display:block;font-family:var(--display);font-size:1.7rem;color:var(--gold-lt)}
@@ -276,12 +298,12 @@ const ACADEMIC = [
   { t: "Annual Academic Calendar", url: "#calendar" },
   { t: "List of School Management Committee (SMC)", url: "docs/smc-members.pdf" },
   { t: "List of Parents Teachers Association (PTA) Members", url: "docs/pta-members.pdf" },
-  { t: "Last one-year result of the Board Examination as per applicability", url: "#results-x", note: "Class X: 48 appeared, 48 passed (100%)" }
+  { t: "Last one-year result of the Board Examination as per applicability", url: "#results-x", note: "Class X (2025-2026): 48 appeared, 48 passed (100%)" }
 ];
 
 /* [year, registered, passed, remarks] — pass % is calculated automatically */
 const RESULTS = {
-  "Class X":   [["[Year]", "48", "48", "NIL"]]
+  "Class X":   [["2025-2026", "48", "48", "NIL"]]
 };
 
 /* child:true rows are indented sub-items without a serial number */
@@ -370,7 +392,17 @@ const HOUSES = [
 ];
 
 /* Events: { date: "YYYY-MM-DD", title, text, link } — newest shown first */
-const EVENTS = [];
+const EVENTS = [
+  { date: "2026-08-15", title: "80th Independence Day Celebration",
+    text: "Our students took part in the taluk-level Independence Day celebration at Kotturu, organised by the Taluk Administration, Taluk Panchayat and Pattana Panchayat. The school presented a patriotic skit with freedom fighters and a march-past, and received a certificate and memento.",
+    photos: ["img/events/independence-day-2.jpg","img/events/independence-day-1.jpg","img/events/independence-day-3.jpg","img/events/independence-day-4.jpg","img/events/independence-day-march.jpg"] },
+  { date: "", title: "Tree Plantation Drive",
+    text: "Students planted saplings on the school campus to learn about caring for nature and keeping our surroundings green.",
+    photos: ["img/events/tree-planting-1.jpg"] },
+  { date: "", title: "Teachers' Orientation Programme",
+    text: "Our teaching staff attended an orientation and training session as part of their professional development.",
+    photos: ["img/events/orientation-1.jpg"] }
+];
 </script>
 
 </head>
@@ -658,7 +690,7 @@ const EVENTS = [];
     <h2>Events &amp; Celebrations</h2>
     <p>Annual day, sports day, national festivals, competitions and other happenings at Wisdom Wings.</p>
   </section>
-  <section class="block" style="padding-top:0"><div class="grid" id="eventList"></div></section>
+  <section class="block" style="padding-top:0"><div class="evlist" id="eventList"></div></section>
 </div>
 
 <!-- ================= CONTACT ================= -->
@@ -727,6 +759,12 @@ const EVENTS = [];
 <div class="legal-bar"><div class="wrap legal"><span id="copy"></span><span><a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a></span></div></div>
 </footer>
 
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">›</button>
+</div>
 <button class="totop" id="totop" aria-label="Scroll to top" hidden>↑</button>
 
 <script>
@@ -802,11 +840,24 @@ const EVENTS = [];
   $("tFee").innerHTML = FEES.map(f=>`<tr><td class="lbl">${esc(f[0])}</td><td class="num" style="text-align:right">₹ ${f[1].toLocaleString("en-IN")}</td></tr>`).join("");
   $("feeBtn").innerHTML = feeDoc ? view(feeDoc, "View fee structure") : `<span class="pend">Fee structure will be published soon</span>`;
   $("houseGrid").innerHTML = HOUSES.map(h => `<div class="card house" style="--hc:${esc(h[1])}"><h3><span class="sw"></span>${val(h[0])}</h3><p>${esc(h[2])}</p></div>`).join("");
-  const evs = EVENTS.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  const evs = EVENTS.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
   const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  $("eventList").innerHTML = evs.length ? evs.map(e => { const [y,m,d] = e.date.split("-");
-      return `<div class="card event"><div class="date"><b>${+d}</b>${MON[+m-1]} ${y}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.text||"")}</p>${e.link?`<a class="go" href="${esc(e.link)}" target="_blank" rel="noopener">See photos →</a>`:""}</div></div>`; }).join("")
-    : `<div class="empty" style="grid-column:1/-1"><h3>Events coming soon</h3><p>Photos and news from school events will appear here. Follow us for updates, or call the office for upcoming dates.</p></div>`;
+  const fmtDate = d => { if (!d) return ""; const [y,m,dd] = d.split("-"); return `${+dd} ${MON[+m-1]} ${y}`; };
+  $("eventList").innerHTML = evs.length ? evs.map((e,ei) => `
+      <article class="ev">
+        <div class="ev-head">${e.date?`<span class="ev-date">${fmtDate(e.date)}</span>`:""}<h3>${esc(e.title)}</h3><p>${esc(e.text||"")}</p></div>
+        ${(e.photos||[]).length?`<div class="ev-photos${e.photos.length===1?" one":""}">${e.photos.map((ph,pi)=>`<button type="button" class="ev-ph" data-ev="${ei}" data-ph="${pi}" aria-label="Open photo ${pi+1} of ${esc(e.title)}"><img src="${esc(ph)}" alt="${esc(e.title)} photo ${pi+1}" loading="lazy"></button>`).join("")}</div>`:""}
+      </article>`).join("")
+    : `<div class="empty"><h3>Events coming soon</h3><p>Photos and news from school events will appear here. Follow us for updates, or call the office for upcoming dates.</p></div>`;
+  /* lightbox */
+  let lbE = 0, lbP = 0;
+  const lbShow = () => { const e = evs[lbE]; $("lbImg").src = e.photos[lbP]; $("lbImg").alt = e.title; $("lbCap").textContent = `${e.title} — ${lbP+1} / ${e.photos.length}`; $("lbPrev").hidden = $("lbNext").hidden = e.photos.length < 2; };
+  $("eventList").addEventListener("click", ev => { const b = ev.target.closest(".ev-ph"); if (!b) return; lbE = +b.dataset.ev; lbP = +b.dataset.ph; lbShow(); $("lb").hidden = false; $("lbClose").focus(); });
+  const step = d => { const n = evs[lbE].photos.length; lbP = (lbP + d + n) % n; lbShow(); };
+  $("lbPrev").onclick = () => step(-1); $("lbNext").onclick = () => step(1);
+  $("lbClose").onclick = () => { $("lb").hidden = true; };
+  $("lb").addEventListener("click", ev => { if (ev.target.id === "lb") $("lb").hidden = true; });
+  addEventListener("keydown", ev => { if ($("lb").hidden) return; if (ev.key === "Escape") $("lb").hidden = true; if (ev.key === "ArrowLeft") step(-1); if (ev.key === "ArrowRight") step(1); });
 
   /* contact */
   const lines = [["Address", SCHOOL.address], ["Phone", SCHOOL.phones[0]], ["Phone", SCHOOL.phones[1]], ["Email", SCHOOL.email], ["Hours", SCHOOL.hours]];
