@@ -249,7 +249,7 @@ const SCHOOL = {
   parentBody: "Taata Education Trust (R)",
   parentBodySub: "Bannigola, Hagaribommanahalli Tq.",
   social: { Facebook: "#", Instagram: "#", YouTube: "#" },
-  lastUpdated: "10-10-2026"
+  lastUpdated: "12-10-2026"
 };
 
 const GENERAL = [
@@ -273,10 +273,10 @@ const DOCUMENTS = [
 
 const ACADEMIC = [
   { t: "Fee Structure of the School", url: "docs/fee-structure.pdf" },
-  { t: "Annual Academic Calendar", url: "" },
-  { t: "List of School Management Committee (SMC)", url: "" },
-  { t: "List of Parents Teachers Association (PTA) Members", url: "" },
-  { t: "Last three-years result of the Board Examination as per applicability", url: "" }
+  { t: "Annual Academic Calendar", url: "#calendar" },
+  { t: "List of School Management Committee (SMC)", url: "docs/smc-members.pdf" },
+  { t: "List of Parents Teachers Association (PTA) Members", url: "docs/pta-members.pdf" },
+  { t: "Last one-year result of the Board Examination as per applicability", url: "#results-x", note: "Class X: 48 appeared, 48 passed (100%)" }
 ];
 
 /* [year, registered, passed, remarks] — pass % is calculated automatically */
@@ -363,10 +363,10 @@ const CALENDAR = [
 
 /* Houses: [name, colour, motto/description] */
 const HOUSES = [
-  ["[House 1]", "#B3261E", "Red house — courage and energy."],
-  ["[House 2]", "#1E5AA8", "Blue house — calm and wisdom."],
-  ["[House 3]", "#2E7D4F", "Green house — growth and care for nature."],
-  ["[House 4]", "#D49A12", "Yellow house — joy and brightness."]
+  ["Pragathi", "#2E7D4F", "Green house — progress and growth."],
+  ["Anuragh", "#D49A12", "Yellow house — warmth, joy and affection."],
+  ["Harushi", "#B3261E", "Red house — courage and energy."],
+  ["Smrithi", "#1E5AA8", "Blue house — memory, wisdom and calm."]
 ];
 
 /* Events: { date: "YYYY-MM-DD", title, text, link } — newest shown first */
@@ -735,7 +735,7 @@ const EVENTS = [];
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const val = s => { s = String(s ?? ""); return /^\[.*\]$/.test(s.trim()) ? `<span class="ph">${esc(s.slice(1,-1))}</span>` : esc(s); };
   const icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
-  const one = (url, label) => `<a class="btn-view" href="${esc(url)}" target="_blank" rel="noopener">${icon}${esc(label)}</a>`;
+  const one = (url, label) => `<a class="btn-view" href="${esc(url)}"${String(url).startsWith("#")?"":` target="_blank" rel="noopener"`}>${icon}${esc(label)}</a>`;
   const view = (url, label="View") => Array.isArray(url) ? `<div style="display:flex;flex-wrap:wrap;gap:6px">${url.map(u=>one(u[1],u[0])).join("")}</div>` : url ? one(url, label) : `<span class="pend">Pending upload</span>`;
   const tblRows = (rows) => rows.map((r,i)=>`<tr><td class="no">${i+1}</td>${r.map((c,j)=>`<td${j===0?' class="lbl"':''}>${val(c)}</td>`).join("")}</tr>`).join("");
 
@@ -764,11 +764,11 @@ const EVENTS = [];
 
   /* ---------- Mandatory disclosure ---------- */
   $("tGeneral").innerHTML = GENERAL.map((r,i) => `<tr><td class="no">${i+1}</td><td class="lbl">${esc(r[0])}</td><td>${val(r[1])}</td></tr>`).join("");
-  const docRows = list => list.map((d,i) => `<tr><td class="no">${i+1}</td><td class="lbl">${esc(d.t)}</td><td>${view(d.url)}</td></tr>`).join("");
+  const docRows = list => list.map((d,i) => `<tr><td class="no">${i+1}</td><td class="lbl">${esc(d.t)}</td><td>${d.note?`<div style="margin-bottom:6px;font-weight:600">${esc(d.note)}</div>`:""}${view(d.url)}</td></tr>`).join("");
   $("tDocs").innerHTML = docRows(DOCUMENTS);
   $("tAcad").innerHTML = docRows(ACADEMIC);
   $("resultTables").innerHTML = Object.entries(RESULTS).map(([cls, rows]) => `
-    <h3>Result ${esc(cls)}</h3>
+    <h3 id="results-${esc(cls.split(" ").pop().toLowerCase())}">Result ${esc(cls)}</h3>
     <div class="tbl"><table><thead><tr><th>S.No</th><th>Year</th><th>No. of Registered Students</th><th>No. of Students Passed</th><th>Pass Percentage</th><th>Remarks</th></tr></thead><tbody>
     ${rows.map((r,i) => { const reg=+r[1], pass=+r[2]; const has = reg>0 && r[2]!=="";
       const pct = has ? (pass/reg*100) : null;
@@ -848,6 +848,7 @@ const EVENTS = [];
   function route(){
     let h = (location.hash || "#home").slice(1), jump = null;
     if (mdSections.includes(h)) { jump = h; h = "mandatory-disclosure"; }
+    else if (!ids.has(h)) { const el = document.getElementById(h); const pg0 = el && el.closest(".page"); if (pg0) { jump = h; h = pg0.dataset.page; } }
     if (!ids.has(h)) h = "home";
     pages.forEach(p => p.hidden = p.dataset.page !== h);
     const pg = pages.find(p => p.dataset.page === h);
