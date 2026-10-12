@@ -249,7 +249,7 @@ const SCHOOL = {
   parentBody: "Taata Education Trust (R)",
   parentBodySub: "Bannigola, Hagaribommanahalli Tq.",
   social: { Facebook: "#", Instagram: "#", YouTube: "#" },
-  lastUpdated: "11-10-2026"
+  lastUpdated: "10-10-2026"
 };
 
 const GENERAL = [
@@ -266,7 +266,7 @@ const DOCUMENTS = [
   { t: "Copies of Affiliation/Upgradation Letter and Recent Extension of Affiliation, if any", url: [["CBSE Approval Letter", "docs/cbse-approval-letter.pdf"], ["State Recognition Order", "docs/state-recognition-order.pdf"]] },
   { t: "Copies of Societies/Trust/Company Registration/Renewal Certificate, as applicable", url: [["Trust Rectification Deed", "docs/trust-rectification-deed.pdf"], ["Non-Proprietary Affidavit & Trustees", "docs/non-proprietary-affidavit.pdf"]] },
   { t: "Copy of valid Building Safety Certificate as per the National Building Code", url: "docs/building-safety-certificate.pdf" },
-  { t: "Copy of valid Fire Safety Certificate issued by the competent authority", url: [["Fire Advise Certificate", "docs/fire-safety-certificate.pdf"], ["Fire Compliance Certificate", "docs/fire-compliance-certificate.pdf"]] },
+  { t: "Copy of valid Fire Safety Certificate issued by the competent authority", url: "docs/fire-compliance-certificate.pdf" },
   { t: "Copy of the DEO Certificate submitted by the school for affiliation/upgradation/extension of affiliation or self certification by school", url: "docs/self-certification.pdf" },
   { t: "Copies of valid Water, Health and Sanitation Certificates", url: [["Health & Sanitary", "docs/health-sanitary-certificate.pdf"], ["Water Test Report", "docs/water-test-report.pdf"]] }
 ];
@@ -281,7 +281,7 @@ const ACADEMIC = [
 
 /* [year, registered, passed, remarks] — pass % is calculated automatically */
 const RESULTS = {
-  "Class X":   [["[YYYY]", "", "", ""], ["[YYYY]", "", "", ""], ["[YYYY]", "", "", ""]]
+  "Class X":   [["[Year]", "48", "48", "NIL"]]
 };
 
 /* child:true rows are indented sub-items without a serial number */
@@ -309,7 +309,7 @@ const INFRA = [
   { t: "Total Campus Area of the School (in Sq Mtr)", v: "4653.885 Sq.mts" },
   { t: "No. and Size of the Class Rooms (in Sq Mtr)", v: "55.18 Sq.mts each" },
   { t: "No. and Size of Laboratories including Computer Labs (in Sq Mtr)",
-    labs: [["Computer Lab", "92 Sq.mts"], ["Maths Lab", "78 Sq.mts"], ["Composite Lab", "78 Sq.mts"], ["Library", "85 Sq.mts"]] },
+    labs: [["Computer Lab", "600 Sq.ft (55.74 Sq.mts)"], ["Maths Lab", "600 Sq.ft (55.74 Sq.mts)"], ["Composite Lab", "600 Sq.ft (55.74 Sq.mts)"], ["Library", "110.36 Sq.mts"]] },
   { t: "Internet Facility", v: "YES" },
   { t: "No. of Girls Toilets", v: "15" },
   { t: "No. of Boys Toilets", v: "15" },
@@ -622,7 +622,7 @@ const EVENTS = [];
         <li>Birth certificate of the child</li><li>Aadhaar card of the child and parents</li>
         <li>Transfer certificate (Class II onwards)</li><li>Previous year's report card</li>
         <li>4 passport-size photographs of the child</li><li>Caste / income certificate, if applicable</li></ul></div>
-      <div class="card"><h3>Fee structure 2025-26</h3>
+      <div class="card"><h3>Fee structure</h3>
         <div style="overflow-x:auto"><table style="min-width:0;font-size:.92rem"><thead><tr><th>Class</th><th style="text-align:right">Annual tuition fee</th></tr></thead><tbody id="tFee"></tbody></table></div>
         <div id="feeBtn" style="margin-top:12px"></div></div>
       <div class="card"><h3>Ready to apply?</h3><p>Send us an enquiry and we will call you back.</p><a class="go" href="#contact">Send an enquiry →</a></div>
@@ -639,9 +639,9 @@ const EVENTS = [];
   </section>
   <section class="block" style="padding-top:0"><div class="grid">
     <div class="card"><h3>Classrooms</h3><p>Spacious, well-lit classrooms of 55.18 sq. m each.</p></div>
-    <div class="card"><h3>Computer Lab</h3><p>A 92 sq. m computer lab for digital skills and computer science.</p></div>
-    <div class="card"><h3>Maths &amp; Composite Labs</h3><p>A 78 sq. m maths lab and a 78 sq. m composite science lab for hands-on learning.</p></div>
-    <div class="card"><h3>Library</h3><p>An 85 sq. m library to build the reading habit from an early age.</p></div>
+    <div class="card"><h3>Computer Lab</h3><p>A 600 sq. ft computer lab for digital skills and computer science.</p></div>
+    <div class="card"><h3>Maths &amp; Composite Labs</h3><p>A 600 sq. ft maths lab and a 600 sq. ft composite science lab for hands-on learning.</p></div>
+    <div class="card"><h3>Library</h3><p>A 110.36 sq. m library to build the reading habit from an early age.</p></div>
     <div class="card"><h3>Internet</h3><p>Internet access on campus to support teaching and digital learning.</p></div>
     <div class="card"><h3>Safe drinking water</h3><p>Drinking water tested by an ISO 9001-2015 certified laboratory.</p><a class="go" href="docs/water-test-report.pdf" target="_blank" rel="noopener">Water test report →</a></div>
     <div class="card"><h3>Health &amp; sanitation</h3><p>15 toilets for girls and 15 for boys. Inspected by the Taluk Health Office.</p><a class="go" href="docs/health-sanitary-certificate.pdf" target="_blank" rel="noopener">Health certificate →</a></div>
@@ -675,7 +675,7 @@ const EVENTS = [];
         <div class="f-row">
           <label class="f">Child's name<input id="fChild"></label>
           <label class="f">Class seeking admission<select id="fClass">
-            <option>Pre-KG</option><option>Nursery</option><option>LKG</option><option>UKG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>General enquiry</option></select></label>
+            <option>Nursery</option><option>LKG</option><option>UKG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>General enquiry</option></select></label>
         </div>
         <label class="f">Message<textarea id="fMsg" rows="4"></textarea></label>
         <p class="f-err" id="fErr" hidden></p>
@@ -800,7 +800,7 @@ const EVENTS = [];
   $("calPdf").innerHTML = calDoc ? view(calDoc, "Download full calendar (PDF)") : "";
   const feeDoc = ACADEMIC[0] && ACADEMIC[0].url;
   $("tFee").innerHTML = FEES.map(f=>`<tr><td class="lbl">${esc(f[0])}</td><td class="num" style="text-align:right">₹ ${f[1].toLocaleString("en-IN")}</td></tr>`).join("");
-  $("feeBtn").innerHTML = feeDoc ? view(feeDoc, "View approved fee structure (PDF)") : `<span class="pend">Fee structure will be published soon</span>`;
+  $("feeBtn").innerHTML = feeDoc ? view(feeDoc, "View fee structure") : `<span class="pend">Fee structure will be published soon</span>`;
   $("houseGrid").innerHTML = HOUSES.map(h => `<div class="card house" style="--hc:${esc(h[1])}"><h3><span class="sw"></span>${val(h[0])}</h3><p>${esc(h[2])}</p></div>`).join("");
   const evs = EVENTS.slice().sort((a,b)=>b.date.localeCompare(a.date));
   const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
